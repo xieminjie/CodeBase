@@ -1,5 +1,14 @@
-define(['jquery'], function($) {    
+define(['jquery','data'], function($,data) {    
+	var options = {
+		type:'GET',
+		url:'/data',
+		contentType:'application/json',
+	}
 	$(function() {
-		$('#test').text('helloworld');
+		var getJsonData = function(response){
+			console.log(response);
+		}
+		data.ajaxHandler(options,getJsonData);
+
 	});    
 });
