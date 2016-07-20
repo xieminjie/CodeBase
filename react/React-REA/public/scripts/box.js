@@ -1,29 +1,29 @@
-// var SavedList = React.createClass({
-//   render:function(){
-//     var savedCell = this.props.data.map(function(result){
-//       return(
-//         <Saved author={result.author} key = {result.id} age={result.age}>
-//         </Saved>
-//       );
-//     });
-//     return(
-//       <div className="savedList">
-//         {savedCell}
-//       </div>
-//     );
-//   }
-// });
-// var Saved = React.createClass({
-//   render:function(){
-//     return (
-//       <div className="save">
-//         <h2 className="savedAuthor">
-//           {this.props.age}
-//         </h2>
-//       </div>
-//     );
-//   }
-// });
+var SavedList = React.createClass({
+  render:function(){
+    var savedCell = this.props.data.map(function(result){
+      return(
+        <Saved price={result.price} key = {result.id} >
+        </Saved>
+      );
+    });
+    return(
+      <div className="savedList">
+        {savedCell}
+      </div>
+    );
+  }
+});
+var Saved = React.createClass({
+  render:function(){
+    return (
+      <div className="save">
+        <h2 className="savedId">
+          {this.props.price}
+        </h2>
+      </div>
+    );
+  }
+});
 var ResultsList = React.createClass({
   render: function() {
     var resultCell = this.props.data.map(function(result){
@@ -58,7 +58,7 @@ var Dashboard = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({results: data.results});
+        this.setState({results: data.results,saved:data.saved});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -66,7 +66,7 @@ var Dashboard = React.createClass({
     });
   },
   getInitialState: function() {
-    return {results:[]};
+    return {results:[],saved:[]};
   },
   componentDidMount: function() {
     this.loadCommentsFromServer();
@@ -76,7 +76,7 @@ var Dashboard = React.createClass({
     return (
       <div className="dashboard container">
         <ResultsList data = {this.state.results}/>
-        {/*<SavedList data={this.state.data} />*/}
+        <SavedList data={this.state.saved} />
       </div>
     );
   }
