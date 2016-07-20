@@ -1,4 +1,4 @@
-define(['jquery','data'], function($,data) {    
+define(['jquery'], function($,data) {    
 	var options = {
 		type:'GET',
 		url:'/data',
@@ -9,10 +9,8 @@ define(['jquery','data'], function($,data) {
 			console.log(response);
 		}
 		data.ajaxHandler(options,getJsonData);
-		for(var i=0;i<4;i++){
-			$('.box-results').load('/html/cell.html');
-			console.log(i);
-		}
+		$('.box-results').load('/html/cell.html');
+		$('.box-results').load('/html/cell.html');
 
 
 	});    
