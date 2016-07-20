@@ -58,7 +58,6 @@ var Dashboard = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        console.log(data.results);
         this.setState({results: data.results});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -76,7 +75,7 @@ var Dashboard = React.createClass({
   render: function() {
     return (
       <div className="dashboard container">
-        <ResultsList data = {this.state.data}/>
+        <ResultsList data = {this.state.results}/>
         {/*<SavedList data={this.state.data} />*/}
       </div>
     );
