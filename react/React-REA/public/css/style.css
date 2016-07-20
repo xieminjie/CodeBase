@@ -1,0 +1,31 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.resultTitle{
+	display: block;
+}
+.resultsList{
+	width: 45%;
+	background-color: #ededed;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin:0 auto;
+	float: left;
+	padding: 10px;
+	min-height: 100px;
+}
+.savedList{
+	background-color:#ededed;
+	width: 45%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-left: 50px;
+	margin:0 auto;
+	float: right;
+	padding: 10px;
+	min-height: 100px;
+}
+
+/*# sourceMappingURL=style.css.map */
